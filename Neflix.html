@@ -1,0 +1,429 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Netflix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+  <style>
+    /* CSS VARIABLES */
+:root {
+  --primary: #141414;
+  --light: #F3F3F3;
+  --dark: 	#686868;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary);
+  color: var(--light);
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  padding-top: 60px;  
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  padding: 20px 20px 0 20px;
+  position: fixed;
+  top: 0;
+  display: grid;  
+  grid-gap:5px;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas: 
+   "nt mn mn sb . . . "; 
+  background-color: var(--primary);
+  width: 100%;
+  margin-bottom: 0px;  
+}
+
+.netflixLogo {
+  grid-area: nt;
+  object-fit: cover;
+  width: 100px;
+  max-height: 100%;
+  
+  padding-left: 30px;
+  padding-top: 0px;  
+}
+
+.netflixLogo img {  
+  height: 35px;     
+}
+
+#logo {
+  color: #E50914;  
+  margin: 0; 
+  padding: 0; 
+}
+
+
+.main-nav {
+  grid-area: mn;
+  padding: 0 30px 0 20px;
+}
+
+.main-nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin: 5px;  
+}
+
+.main-nav a:hover {
+  color: var(--dark);
+}
+
+.sub-nav {
+  grid-area: sb;
+  padding: 0 40px 0 40px;
+}
+
+.sub-nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin: 5px;
+}
+
+.sub-nav a:hover {
+  color: var(--dark);
+}
+
+
+/* MAIN CONTIANER */
+.main-container {
+  padding: 50px;
+}
+
+.box {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+}
+
+.box a {
+  transition: transform .3s;  
+}
+
+.box a:hover {
+  transition: transform .3s;
+  -ms-transform: scale(1.4);
+  -webkit-transform: scale(1.4);  
+  transform: scale(1.4);
+}
+
+.box img {
+  border-radius: 2px;
+}
+
+/* LINKS */
+.link {
+  padding: 50px;
+}
+
+.sub-links ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sub-links a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.sub-links a:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+.logos a{
+  padding: 10px;
+}
+
+.logo {
+  color: var(--dark);
+}
+
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  color: var(--dark);
+  margin: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width: 900px) {
+
+  header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "nt nt nt  .  .  . sb . . . "
+    "mn mn mn mn mn mn  mn mn mn mn";
+  }
+
+  .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+
+}
+
+@media(max-width: 700px) {
+
+  header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "nt nt nt  .  .  . sb . . . "
+    "mn mn mn mn mn mn  mn mn mn mn";
+  }
+
+  .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+
+  .sub-links ul {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+   
+}
+
+@media(max-width: 500px) {
+
+  .wrapper {
+    font-size: 15px;
+  }
+
+  header {
+    margin: 0;
+    padding: 20px 0 0 0;
+    position: static;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+    "nt"    
+    "mn"
+    "sb";
+    text-align: center;
+  }
+
+  .netflixLogo {
+    max-width: 100%;
+    margin: auto;
+    padding-right: 20px;
+  }
+
+  .main-nav {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+ 
+
+  .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;    
+  }
+
+  .box a:hover {
+    transition: transform .3s;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);  
+    transform: scale(1.2);
+  }
+
+  .logos {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+
+  .sub-links ul {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    font-size: 15px;
+  }
+
+  
+
+  
+   
+}
+  </style> 
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="netflixLogo">
+        <a id="logo" href="#home"><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></a>
+      </div>      
+      <nav class="main-nav">                
+        <a href="#home">Home</a>
+        <a href="#tvShows">TV Shows</a>
+        <a href="#movies">Movies</a>
+        <a href="#originals">Originals</a>  
+      </nav>
+      <nav class="sub-nav">
+        <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
+        <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
+        <a href="#">Account</a>        
+      </nav>      
+    </header>
+    <!-- END OF HEADER -->
+    
+    <!-- MAIN CONTAINER -->
+    <section class="main-container" >
+      <div class="location" id="home">
+          <h1 id="home">Popular on Netflix</h1>
+          <div class="box">
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABb-bHYon2UZxm-Zb34o-B8Qxxsz_uPX7dy6tmjJXvek_8qkA-jYrmj4eZQGX-EJnwPCT5hl4rsSy3P-lZYUxv_e-nwoqxJTUVi7gTuZCOskBp_3NWlzjkzuKwCxjiA__Vsa5KJ1vWUlU2jt4RF2aSX1rz1oY3iDUJ36UwtuKpUIJd2p1RBhJWL6Jq4eigdNq5maLXdl_OJcpMCmdPyxF6ogf9FWXjddOj0SPUsH_harn7YGdwM9MM8ms35ekz1n0Xgo79DJoTQjKbTuJxIqub_0c2Pvt.jpg?r=917" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRecCEkfho1IsrdXdEiPxPBb-mI-XUR8cIverWsQNLoHAcuxe0fUs3SOqvrhr77z8kQircYZf_-gVVakvA-kPQzsW_BrTXgqEJU.jpg?r=cfe" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfGEUaombzibnQGGa1gvrxORKK2Uk1aPyqgnP6uD2fVzadoATk3YFkGKjuPyaCP40z3RDJxlTS_ah9giW-OEl43PcE0c3k8wbyY.jpg?r=653" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUuwa85zjDiGaUURrexIT0fgRozPOPQPJt2z4OtxHKJeaKSIBEngi4wDNklqQqm0x2oSDFgRaDg9fDeihLDMIl378es1pPtCI7g.jpg?r=860" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUHjH3kfWcbpm0qj41KDo4Jxi3Acx2jyFlwtxXdfm94JOqZOhd-Co0msoDLaYA9RBnBGQm0mzzc37sASWMuV6gminvvkOt-CsUVacxhlGGhzioecupJj0bRb32v_Y32uuCGvDn8ZOcMtgWf5V1VW8_dPhFywWA-SEbGAlVQ-FEE4CGG1wiVvFIjRbH44KafY6Gxt_Nqmwk4l3giO00UA6dpkpitTVDu0vIkmqcYbESKxuYghdQtG7Dl_LvATgSJWZKaLVIvG5undFO6aJvShav20YN4k.jpg?r=cdd" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQy-v_xWf7UcldUZj_Kfh8bbiusoJ7FlYTvDke-OPnc7OwZqufVGoEGYPHPHqoGmFuS_QcHX3cFHZPi3Kx0I-5x5bxNxsZpDdbU.jpg?r=e35" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfMx4EKRuDXtrOdvV7Yy5wuucxNKa4Dfnyvzp1BV7JT9M0J0sxRRtA_6STAEHtKEumzXhNqU4lywtChboUmlgjMRFSxx6fhjr9Q.jpg?r=2e4" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSSwbgG5HIe80DM4q0CzOAF-TQZHAexPWJ-YK0B2u94WHuP_3bwBs7yY-_iZ-_9-2QcjKpWGZ2yQRN6QJjima82SW4_WXzW1SgY.jpg?r=68d" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABczlpn4mymQtuFcpyIhZpcGOplUIUFDq1FPWkAWqWh58eY0dDLHMumo4ZMR4xKYCJFJa4ZCf1naLQLSsGrKos0b9CP98-9NoHco.jpg?r=8da" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUfBoFJ9GGgUN9j2aXlD5JXGZJlwkl-Kwp3rbRdDPNCdPK8enVYjVyfJFgYVwj70gl6wFTlAOrU8FKV7Gwc04BKQ-0_UFyBoXsY.jpg?r=4b5" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABasLZij7k46sse_PnL5tpf1qJ48myOcoEjUmwSM3HyMkX7M8pUrQh1XEAzUT8sgreRdh6c44k4l9mSwgFR7QJqzyUmjVy5PMwrxcwWQ4MvVIsgDZWy5DaFJopqxtrQH0CNGa.jpg?r=fb9" alt=""></a>
+            <a href=""><img src="https://occ-0-2042-3662.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVcB8tfB3H34DjsaANrWGxFWxZAIvm0pzFjt4wnKqm9qKKSAZduumUk_dlcUmgeJCSUek9yBZzmbWkM2kR41U3lmbRFJ37CBSTc.jpg?r=330" alt=""></a>        
+          </div>
+      </div>
+      
+
+      <h1 id="myList">Trending Now</h1>
+      <div class="box">
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWSA0vK5kXUKCC1f_S2KBwx5zNmpq5BlMG3iv7uKXd6pnbfFyTgySf0aWFeIS6fcE-9SEqrt6w2p73fm20aCO0Cw261oPFUQXCbikFwgOmeN3ZZWSEryDfP1iQ6CO4M-NnVLmw1IBjLzwZ8AL-tnyeYphCsRn4-tTUKyCRCoOtwZmSq3Dl7vO7HSIUWNJSuamNUaIBzqFrBMe3crbkAN4_qmhpr7AK0w3W4ZOchrTsOaw3-mVXr_YOluPF5P1Y2dfhOIXd48j2ArwihlRC6m57HSZftf.jpg?r=3e0" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSdmIAkQth5eA-_UzV3mBMr0rvlYDv6LJoAf6BbGUvhn_MLbI1NTzcBt9l0abXFkkxteCc6l_cbZDk91F9KTxxiz6ErNXLm6L3U.jpg?r=e21" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVYOmPj4Gm_OtLTgbZVG5kqpfBL0w3o7qQzsijU3oq5TaMhqtFIMA3mfA4eZmv_SZF2vhHCI9RAUV8OJHPurK_zk7-_5btept6c.jpg?r=ef8" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXQfWbdhxm8VTuj4Nuf5mrqA5YXz-lV-Y_A2TVPDYm3EdwnvpKHj9iQQ46NQ3FckPSDHrWf0Rcx3itceUXfNes27v8pJrgH5xbE.jpg?r=6bd" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSMcXd1kZITJo9xLCNxB_sF1j2486XWO-mMelZ-6MUswZ7Hudr7I6Z9p3lnkB0FiQ7qXaLnXS_YYuyWOnRqh1PnjxgMguP3eO10.jpg?r=a05" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVqf5mfsmskVR3vRv2OpAOUFtlDudRV72Xj4FI8qO_FZ1nt3MnOIR8bnmgM5pip3K2kEDY4fox3oOhxPdd-SKwYXFq4m0lp7Duk.jpg?r=409" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVqHZslrpLozuIyxNgI_4L1Z3303E3gNgO77n19Id08Qoup2T_JffFD_rRVvosGX8DW0LeCkKKZPqZLU0QVHlOt7xN6Zo0uNWKQ.jpg?r=d2f" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXHn8UzJN4LyjAfgmTuY2EQpUc9X4zqjiTRUxVN9qHsOH5uh44EeTSch9eGZgdxEF2KAT1uEA41597t66BqmzAoNVJFkXYpQsdo.jpg?r=c11https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZ0d4SkML5xoKozl8TzJBVMwUS7ReQxlD6joje9OmLgpAEesFH8Omxb2SDiSo4GKTXYy3AMJxwp4NlDB9Lx-PPQXE3rBqN04F14.jpg?r=44b" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQwR-JJ1QoOWg3BxUTVXyNyvKZrB73lZzp10SmRNq3vmR_qoDpugDCEc5kduhuhF5F_23OrnxpX0GufwGPYf2vIrFTf9z9Yso28.jpg?r=9e8" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdE5R_Q4quFkA7q5byI-pTt4KnUq_faZa2pNdG7Axj4ha6eMug--vm3B0R-MquS_EocJjozC9EAANgv82oEHFgGY3JEeW4HXG6BWMufT2ZluvKGJ2zJcXhoIpEc2t3qaDr8rVBt4zGzskqjhuQ8zCt0F_xd9TYPMz6QnznHWER9JWK9WADDpznu3qkjCLS7EaF8dezAbSZUOVhsmQEqke1dQCGpusKIF-kE2rLDnWi1ao1L2QGu6UUfalZkbj83rQusZfrrYgshNWax9ayAkis-DAIcs.jpg?r=8e2" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABembRw5tCLo27pTiZwbxXn1WSuGD8FYg2YCTpFADa7ggdKknm_DLxSY9cQlWUXGUiaEy2cmV5GuWoxVCP2rnaHCH2aNcMoHAzm0.jpg?r=919" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcjThqQpBK2IFsQ4p5IcW22b6c5NntilLsSa9wmgL2LETfCQTbTeY9laWss5CG0LVj0wBjlUUuaYwm5oRsrqzEI7BphIlVK4Ic4.jpg?r=3db" alt=""></a>                 
+      </div>
+      
+      <h1 id="tvShows">TV Shows</h1>
+      <div class="box">
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUm0kq-hgAoJYUIL_uZv0UH992lx_BScPg_3t3-nEofhLXgYS5weaeJiacTGN_j91oAaAFP2ei8FYSEbeznozZN6vV_0sB2txByyR3pfIMFnq9mTp-Rn-FY2pAAJtYzoop_i.jpg?r=807" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTo43l6eCdnpcMEBC_VRhVi2Yz-B9X68G1-q8Oz06DcbpgBw9CaqorCH_IIi69WF7IkLAsWRe8BuuyD89EhJjjPwVRcUfFHf8RvVs1viYS5gX2pONWeSPoUAM0bL86NWeU4YLZTq7yOPFVP6HwgANdby6xADfreXsoVX58kIHYNQALJWTHlNn60wVYlXCK_QHARPVjOT-Id-5tLhwlHe-Z7ANYnQ6_p40jlZeXsFb5H7tTvsQiHk2lehuekr8JQ2e2JwivwGxf8wLVVMDI-lhhsq5w1ZBK0Mad1EhrZYwVe12JClotMP0vaT.jpg?r=088" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbOyA-tv_BECGqUZX1kAlfrL0zBEl-OlokIR9doQ2wGoJAmcsWFGb7Nl6aJZMnTCWJlcnFLZuEi7iYOVWBurHA1G8FReGOe8obN_XzpoOqOHU1qEE6VJJCAd-HVuq4ylujf9.jpg?r=4f5" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV6TkmHhg_zfASk7E4tpVNvQbgLfIjh7AzAxL_VS2ISmR303iv0udlBHcyRrXIiHHjhW161EDNpmDMOxKwoXj-1-5e7YR6Y7mlo.jpg?r=286" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABX0Ck9ks8NbZ-FKL-TiaiSbuaowC38N8RrUTZUhvodA8hjsTHCujs6e3gBofdYiEi7InWzeeyDfKUgGURRolxVDpf66JzCV3oNBQUiRABQBxYUREIYTaEKSIUugDE23m4zj1.jpg?r=03a" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV3WXTVFilRn7xZOkIErrtZ3WbE4cExCT62QNUZ9V0NTtdWcrw9LbvxG7AY5rrCIyh--9viak4ic04N0eedTwQdy-tZKxBExFo4B41RoYvsgYnU68FxsscRQrNjbAy5HOkfU.jpg?r=4a3" alt=""></a>
+        
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbWeuHshVh6x9nCg0T8TeBMB0gw0L2LVt-YSCDkQ9JkfeKP6Lt9969MeHFy1Ydm7obZOjaUED2BAsOa4wCKpZnFI6k_IULpVtI-XiFrL_2sc8p9FK_W-7oHTdWNBlpI18B71.jpg?r=221" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdFmMkQfLjnPnKzK-j0S-5PSWLCoJfVHsDUBQYX2UI8qkIUe_dk-DNSprO6bd7j8zik5vcVWNHQDjGlvXgbuV3yi30Tb7nH1pDzqKwCcubxGfucD5K0t9SKPxqw_6DX12NED.jpg?r=31e" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRw6CELmOFrRGwZUNM86Fy_1ZH08Pk6Ej45l1rm7L6OQtBmjRHEzJP-Sm2kXsBh7zepgYwrAqRWGGO_5CWMCBLtYdYKV5VY3wadRT_7sGbPvU7wuENsrb2v_QR1UwWPdoFtM.jpg?r=a07" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaK8m0mY0KOxPdkATJNl7d06rqBDFcOjbL873o_CQiuvkQpvesLAeenYdD4huVPJ4ZCAL8VYdiCBTGogm5NDvl46eEacf3S_-IM0kz0bCoan5azHNE76F2P8n9IBScX1AqZi60bY6R-e8RCg46tAKCH0CNy-WXw0mMyVmX8EPrlRrMYk3bLiFtQwJ4lPue2qcSzKBu830TFPjoKzDralnBnnB4I-rczVxPYIFfhJkF2aC_eJ9iWmyhRVNd7fEX3E1d-GyAKwXX4iTua35H5BP6Xs-N5WMXBAecJS5eqpV_qMaBXmlDCgOFic.jpg?r=06c" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdTdc4a44sEEWNOk2SnLEcJT6FGN9RFN60AEcap8GXYuKIT2E0_rCHERUNaHfHDVdAvBO0TCj6UnQANE12h28RHzyLgx-cujRmqletJRlbm1A3h2IeSkSC9rC8r1kFBZC9KY.jpg?r=bb3" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUzOM4uhVeX05-ygMpsQdBEnMnr8aNzRSfU1meZ43JsFOebGKvvQwvSWn5wT5jn6i2ci0HzRuRfUZtZOrO6ULcJBay5T26oMNCFsQvmviMDJw0tkDJ6wGOEkacRfnALgT4fM.jpg?r=4ee" alt=""></a>              
+      </div>
+      
+
+      <h1 id="movies">Blockbuster Action & Adventure</h1>
+      <div class="box">
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXHmXlj8DshQFdxRzNXRJ6I6VYRa-1dvriomkdCLfbSgQBINRi1lOHnGYcl0ManOc2MLYGmkEJIMOB1NRuU4PsfwUsipJcJ0c9E.jpg?r=b52" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfjom_MO2Lh03mTkRiz_jLj0nRY0iEi5rSAGw1aT8j-b2zBO97m5vLoKN7UqDR5r7WXbgXkPbb3O_PN4WmepNfyf1cy4hgRYK5U.jpg?r=cfd" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTwPfIT3_obHiuYG2VDTuM-wHN1E4JiCguBBtTz7jEX79fgs4vfSMM8KGLiep2bND3tjpJS7lAGUBCAmA3vkhQ-Ue7uhrz66RbE.jpg?r=7ac" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdamOc1ucxLFfUCTvHNR6YnuRNZYMiqZOGu8kDfFWv_YMd3LhFov5_jpTL81LpXrEX862Yg5eLY1xBsEILP9SZtrKXMyv7iOiRE.jpg?r=f09" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdef4W29p6UJV1AR2F9V5u0qTOnUiOpHlq4bhc7I-8IJeUJRlC0cqHCft7NIKYY5pzr4mrTu0YEShLRMIzg_1XGptrd5x3k43Jc.jpg?r=d78" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABT0_FiGprH0-KbySprUHZUQN5KsXxH49pQM0dwmylVg0h_qEPw4CxycqF2TLFQbUvaeRUWDz-bQlkpzvGwSLPv3ZhOYVqXKn6iE.jpg?r=934" alt=""></a>                
+      </div>
+
+      <h1 id="originals">Netflix Originals</h1>
+      <div class="box">
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRTCPqXpci3utWBdjhChlGhxuk346g-R6O0oOIrEAHWgKTM6Jhfhptdg8EAoB9QU41fJcAh1Nr8FDn5wggXbKnsimIJVg2VGeZxMGD-FqVpnLZDKKtaBYr-WWFguQZk_5KNd.jpg?r=3a5" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfkJGYBhxIzLvbq4FsBZ1B8K37EKTsctlcSbkRM0dUPuquhx4fllvwshDnyNwwh8-YTGAXutiijYJOHjRobNJhhlh-BDDDBeznw0x5HVML1-J68qGDBoLr-9gz_P2ETWQmO5.jpg?r=e6a" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRk8fMj9OnwMxt5pOJgxuzkOrFwJYHOuC286IWpp-9yfWQr6zo50Ya3ptHgC6fZ95xvDbHiEKMNwlBuCf3_8aXwsLvi53xnqyIM7RQuE1TbD29GBSYJCA9-OI1EkJXgmmEtc.jpg?r=4e3" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV6TkmHhg_zfASk7E4tpVNvQbgLfIjh7AzAxL_VS2ISmR303iv0udlBHcyRrXIiHHjhW161EDNpmDMOxKwoXj-1-5e7YR6Y7mlo.jpg?r=286" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABda_Xfn8pma5WDsVdP9Lfhezy1yMpAMkag_Uxqp9D28jreq7vX1RYZILC5dVo_7v5vE6lojHXJP_lGe5cwPfmNS1dhd0XZjLysEO-8g2N2dTkBu9cj4NNrRibJ59ifloH9JH.jpg?r=f22" alt=""></a>
+        <a href=""><img src="https://occ-0-2042-3663.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTDJBCtYEqjSbGAxpNWexY-kzhSoNuIl49F2TZfLGeVVgd_Dt_AvKNyBGPjzegtKsq5k7AaDyuT-tZ_UOGkCFGS5vmReY4NZGKY7yioeRd-DYqknLmiLwCxxAorLpf6Gaotz.jpg?r=13b" alt=""></a>                
+      </div>
+     
+    <!-- END OF MAIN CONTAINER -->
+
+    <!-- LINKS -->
+    <section class="link">
+      <div class="logos">
+        <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-2x logo"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x logo"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-2x logo"></i></a>
+      </div>
+      <div class="sub-links">
+        <ul>
+          <li><a href="#">Cookie Preferences</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Media Center</a></li>
+          <li><a href="#">Investor Relations</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Legal Notices</a></li>
+          <li><a href="#">Corporate Information</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- END OF LINKS -->
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy 1997-2018 Netflix, Inc.</p>
+    </footer>
+  </div>
+</body>
+</html>
