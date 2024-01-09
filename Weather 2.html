@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Georgia, Serif;
+            background-image:url(https://images.pexels.com/photos/620337/pexels-photo-620337.jpeg?cs=srgb&dl=pexels-tobi-620337.jpg&fm=jpg);
+            background-size: cover;
+            background-position: center top;
+            background-color: #394589ab;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 100px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+            margin-top: 200px;
+
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        input[type="text"] {
+            font-family: Courier New, Monospace;
+            background-image:url(https://media.istockphoto.com/id/1091165998/photo/city-skyline-and-buildings-with-empty-asphalt-road-at-sunrise.jpg?s=612x612&w=0&k=20&c=xq2UmT7OWwQSEyZex5rhDYHG6vD4nsc_m4XiF7UtGmI=);
+            background-position: center top;
+            background-size: cover;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            font-family: Monaco, Monospace;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .weather-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <input type="text" id="locationInput" placeholder="Enter a city">
+        <button id="searchButton">Search</button>
+        <div class="weather-info">
+            <h2 id="location"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </div>
+    <script>
+        const apiKey = 'a00c2fca3f9b20c775b3ce90d46cf401'; 
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+        const locationInput = document.getElementById('locationInput');
+        const searchButton = document.getElementById('searchButton');
+        const locationElement = document.getElementById('location');
+        const temperatureElement = document.getElementById('temperature');
+        const descriptionElement = document.getElementById('description');
+
+        searchButton.addEventListener('click', () => {
+            const location = locationInput.value;
+            if (location) {
+                fetchWeather(location);
+            }
+        });
+
+        function fetchWeather(location) {
+            const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.main && data.weather && data.weather[0]) {
+                        locationElement.textContent = data.name;
+                        temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
+                        descriptionElement.textContent = data.weather[0].description;
+                    } else {
+                        console.error('Unexpected response format:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>
